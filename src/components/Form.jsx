@@ -1,29 +1,89 @@
-// "https://api.bigdatacloud.net/data/reverse-geocode-client?latitude=0&longitude=0"
-
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
+import { useUrlPositions } from "../hooks/useUrlPositions";
+import DatePicker from "react-datepicker";
+import "react-datepicker/dist/react-datepicker.css";
 
 import styles from "./Form.module.css";
 import Button from "./Button";
-import { useNavigate } from "react-router-dom";
+import ButtonBack from "./ButtonBack";
+import Message from "./Message";
+import Spinner from "./Spinner";
+import Flag from "react-world-flags";
+import { useCities } from "../Contexts/CitiesContext";
 
-export function convertToEmoji(countryCode) {
-  const codePoints = countryCode
-    .toUpperCase()
-    .split("")
-    .map((char) => 127397 + char.charCodeAt());
-  return String.fromCodePoint(...codePoints);
-}
-
+const BASE_URL = "https://api.bigdatacloud.net/data/reverse-geocode-client?";
 function Form() {
+  const [lat, lng] = useUrlPositions();
+  const { addCity, isLoading } = useCities();
   const nevigate = useNavigate();
 
   const [cityName, setCityName] = useState("");
   const [country, setCountry] = useState("");
   const [date, setDate] = useState(new Date());
   const [notes, setNotes] = useState("");
+  const [countryCode, setCountryCode] = useState("");
+  const [gettingPositionError, setGettingPositionError] = useState("");
+  const [positionLoading, setPositionLoading] = useState(false);
+  useEffect(
+    function () {
+      if (!lng && !lat) return;
+      async function getPositionDetails() {
+        try {
+          setPositionLoading(true);
+          setGettingPositionError("");
+          setDate(new Date());
+          const res = await fetch(
+            `${BASE_URL}latitude=${lat}&longitude=${lng}`
+          );
+          const data = await res.json();
+          if (data.city === "")
+            throw new Error(
+              "That does not seems to be City Click somewhere else 😅"
+            );
+          setCityName(data.city);
+          setCountry(data.countryName);
+          setCountryCode(data.countryCode);
+          console.log(data);
+        } catch (err) {
+          setGettingPositionError(err.message);
+          console.log(err);
+        } finally {
+          setPositionLoading(false);
+        }
+      }
+      getPositionDetails();
+    },
+    [lat, lng]
+  );
+
+  async function handleSubmit(e) {
+    e.preventDefault();
+    if (!cityName || !date) return;
+    const newCity = {
+      cityName,
+      country,
+      emoji: countryCode,
+      date,
+      notes,
+      position: {
+        lat,
+        lng,
+      },
+    };
+    await addCity(newCity);
+    nevigate("/app/cities");
+  }
+
+  if (!lat && !lng) return <Message message={"Click on City to get Started"} />;
+  if (positionLoading) return <Spinner />;
+  if (gettingPositionError) return <Message message={gettingPositionError} />;
 
   return (
-    <form className={styles.form}>
+    <form
+      className={`${styles.form} ${isLoading ? styles.loading : ""}`}
+      onSubmit={handleSubmit}
+    >
       <div className={styles.row}>
         <label htmlFor="cityName">City name</label>
         <input
@@ -31,15 +91,19 @@ function Form() {
           onChange={(e) => setCityName(e.target.value)}
           value={cityName}
         />
-        {/* <span className={styles.flag}>{emoji}</span> */}
+        <span className={styles.flag}>
+          <Flag code={countryCode} height={16} />
+        </span>
       </div>
 
       <div className={styles.row}>
         <label htmlFor="date">When did you go to {cityName}?</label>
-        <input
+        <DatePicker
           id="date"
-          onChange={(e) => setDate(e.target.value)}
           value={date}
+          onChange={(date) => setDate(date)}
+          selected={date}
+          dateFormat={"dd/MM/yyyy"}
         />
       </div>
 
@@ -54,15 +118,7 @@ function Form() {
 
       <div className={styles.buttons}>
         <Button type="primary">Add</Button>
-        <Button
-          type="back"
-          onClick={(e) => {
-            e.preventDefault();
-            nevigate(-1);
-          }}
-        >
-          &larr; Back
-        </Button>
+        <ButtonBack type="back">&larr; Back</ButtonBack>
       </div>
     </form>
   );
