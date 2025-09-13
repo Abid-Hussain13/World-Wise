@@ -13,183 +13,27 @@
       "id": "73930385"
     },
     {
+      "id": "edd6",
       "cityName": "Madrid",
       "country": "Spain",
       "emoji": "ES",
-      "date": "2027-07-15T08:22:53.976Z",
+      "date": "2025-09-12T07:46:23.714Z",
       "notes": "",
       "position": {
-        "lat": 40.46635901755316,
-        "lng": -3.7133789062500004
-      },
-      "id": "17806751"
+        "lat": "40.396764305572056",
+        "lng": "-3.6035156250000004"
+      }
     },
     {
-      "cityName": "Berlin",
-      "country": "Germany",
-      "emoji": "DE",
-      "date": "2027-02-12T09:24:11.863Z",
-      "notes": "Amazing 😃",
-      "position": {
-        "lat": 52.53586782505711,
-        "lng": 13.376933665713324
-      },
-      "id": "98443197"
-    },
-    {
-      "cityName": "Nijar",
-      "country": "Spain",
-      "emoji": "ES",
-      "date": "2023-04-03T07:47:59.202Z",
-      "notes": "",
-      "position": {
-        "lat": "36.967508314568164",
-        "lng": "-2.13128394200588"
-      },
-      "id": "98443198"
-    },
-    {
-      "id": "005e",
-      "cityName": "Khanewal",
+      "id": "e0a1",
+      "cityName": "Dunyapur",
       "country": "Pakistan",
       "emoji": "PK",
-      "date": "2025-09-10T07:39:26.058Z",
-      "notes": "beauty and the beast",
-      "position": {
-        "lat": "30.278044377800153",
-        "lng": "71.88354492187501"
-      }
-    },
-    {
-      "id": "72b9",
-      "cityName": "Zhob",
-      "country": "Pakistan",
-      "emoji": "PK",
-      "date": "2025-09-10T07:40:17.402Z",
+      "date": "2025-09-12T07:57:17.595Z",
       "notes": "",
       "position": {
-        "lat": "31.28793989264176",
-        "lng": "69.44458007812501"
-      }
-    },
-    {
-      "id": "d1fc",
-      "cityName": "Shamulzai",
-      "country": "Afghanistan",
-      "emoji": "AF",
-      "date": "2025-09-10T07:41:45.522Z",
-      "notes": "",
-      "position": {
-        "lat": "32.008075959291055",
-        "lng": "67.91748046875001"
-      }
-    },
-    {
-      "id": "b499",
-      "cityName": "Khas Uruzgan",
-      "country": "Afghanistan",
-      "emoji": "AF",
-      "date": "2025-09-10T07:42:18.427Z",
-      "notes": "",
-      "position": {
-        "lat": "33.165145408240285",
-        "lng": "66.67602539062501"
-      }
-    },
-    {
-      "id": "3404",
-      "cityName": "Mahidasht",
-      "country": "Iran (Islamic Republic of)",
-      "emoji": "IR",
-      "date": "2025-09-10T07:45:18.041Z",
-      "notes": "",
-      "position": {
-        "lat": "34.23451236236987",
-        "lng": "47.02148437500001"
-      }
-    },
-    {
-      "id": "fbb2",
-      "cityName": "Montagnac-Montpezat",
-      "country": "France",
-      "emoji": "FR",
-      "date": "2025-09-10T07:50:47.325Z",
-      "notes": "",
-      "position": {
-        "lat": "43.77109381775651",
-        "lng": "6.064453125000001"
-      }
-    },
-    {
-      "id": "0201",
-      "cityName": "Fayet-le-Chateau",
-      "country": "France",
-      "emoji": "FR",
-      "date": "2025-09-10T07:51:06.672Z",
-      "notes": "",
-      "position": {
-        "lat": "45.67548217560647",
-        "lng": "3.40576171875"
-      }
-    },
-    {
-      "id": "689f",
-      "cityName": "Pangbourne",
-      "country": "United Kingdom of Great Britain and Northern Ireland (the)",
-      "emoji": "GB",
-      "date": "2025-10-01T07:51:17.000Z",
-      "notes": "Oh ya🎉",
-      "position": {
-        "lat": "51.481382896100975",
-        "lng": "-1.0986328125000002"
-      }
-    },
-    {
-      "id": "ad62",
-      "cityName": "Sibi",
-      "country": "Pakistan",
-      "countryCode": "PK",
-      "date": "2025-09-10T07:54:19.564Z",
-      "notes": "",
-      "position": {
-        "lat": "29.6880527498568",
-        "lng": "67.80761718750001"
-      }
-    },
-    {
-      "id": "4d10",
-      "cityName": "Chahar Burjak",
-      "country": "Afghanistan",
-      "emoji": "AF",
-      "date": "2025-09-10T07:54:33.980Z",
-      "notes": "",
-      "position": {
-        "lat": "30.78903675126116",
-        "lng": "62.77587890625001"
-      }
-    },
-    {
-      "id": "2383",
-      "cityName": "Bratskiy Rayon",
-      "country": "Russian Federation (the)",
-      "emoji": "RU",
-      "date": "2025-09-10T07:54:46.160Z",
-      "notes": "",
-      "position": {
-        "lat": "56.559482483762245",
-        "lng": "102.48046875000001"
-      }
-    },
-    {
-      "id": "d872",
-      "cityName": "Taymyrskiy Dolgano-Nenetskiy Rayon",
-      "country": "Russian Federation (the)",
-      "emoji": "RU",
-      "date": "2025-09-10T07:57:26.369Z",
-      "notes": "",
-      "position": {
-        "lat": "68.52823492039879",
-        "lng": "92.81250000000001"
+        "lat": "29.7453016622136",
+        "lng": "71.67068481445314"
       }
     }
   ]

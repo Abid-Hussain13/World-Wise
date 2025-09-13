@@ -15,16 +15,21 @@ import { useGeolocation } from "../hooks/useGeolocation";
 import Button from "./Button";
 import { useUrlPositions } from "../hooks/useUrlPositions";
 import Flag from "react-world-flags";
+import User from "./User";
 
 export default function Map() {
-  const [mapPosition, setMapPosition] = useState([40, 10]);
-  const { cities } = useCities();
+  const { cities, mapPositionSet } = useCities();
+  const [mapPosition, setMapPosition] = useState(mapPositionSet);
   const {
     isLoading,
     position: geolocationPosition,
     getPosition,
   } = useGeolocation();
   const [mapLat, mapLng] = useUrlPositions();
+
+  useEffect(() => {
+    setMapPosition(mapPositionSet);
+  }, [mapPositionSet]);
 
   useEffect(
     function () {
@@ -44,6 +49,7 @@ export default function Map() {
 
   return (
     <div className={styles.mapContainer}>
+      <User />
       {!geolocationPosition && (
         <Button type="position" onClick={getPosition}>
           {isLoading ? "Loading..." : "Use my position"}

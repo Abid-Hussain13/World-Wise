@@ -25,6 +25,7 @@ function Form() {
   const [countryCode, setCountryCode] = useState("");
   const [gettingPositionError, setGettingPositionError] = useState("");
   const [positionLoading, setPositionLoading] = useState(false);
+
   useEffect(
     function () {
       if (!lng && !lat) return;
