@@ -17,7 +17,9 @@ export default function Homepage() {
           of. Never forget your wonderful experiences, and show your friends how
           you have wandered the world.
         </h2>
-        <NavLink to="/app">Start Tracking Now</NavLink>
+        <NavLink className={styles.ctaLink} to="/app">
+          Start Tracking Now
+        </NavLink>
       </section>
     </main>
   );

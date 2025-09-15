@@ -1,8 +1,8 @@
 .login {
-  margin: 2.5rem;
+  margin: 0;
   padding: 2.5rem 5rem;
   background-color: var(--color-dark--1);
-  min-height: calc(100vh - 5rem);
+  min-height: 100vh;
 }
 
 .form {
@@ -23,4 +23,20 @@
   display: flex;
   flex-direction: column;
   gap: 0.5rem;
+}
+
+.ctaLink {
+  background-color: var(--color-brand--2);
+  color: var(--color-dark--0);
+  padding: 0.8rem 2rem;
+  border-radius: 7px;
+  border: 2px solid var(--color-brand--2);
+  text-decoration: none;
+  font-size: 1.5rem;
+  text-transform: uppercase;
+  border-color: var(--color-brand--2);
+  font-weight: 600;
+}
+.ctaLink:hover {
+  color: white;
 }
