@@ -9,7 +9,7 @@ export default function ProtectedRoutes({ children }) {
   useEffect(
     function () {
       if (!isAuthenticated) {
-        nevigate("/");
+        nevigate("/login");
       }
     },
     [isAuthenticated, nevigate]
