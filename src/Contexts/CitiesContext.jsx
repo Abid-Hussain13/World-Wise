@@ -1,6 +1,7 @@
 import { createContext, useEffect, useContext, useReducer } from "react";
 
-const BASE_URL = "http://localhost:2000";
+// const BASE_URL = "http://localhost:2000";
+const BASE_URL = "https://world-wise-b7zc.onrender.com";
 
 const initialState = {
   cities: [],
@@ -76,6 +77,7 @@ function CitiesProvider({ children }) {
       try {
         const res = await fetch(`${BASE_URL}/cities`);
         const data = await res.json();
+        console.log(data);
         dispatch({ type: "cities/loaded", payload: data });
       } catch {
         dispatch({
