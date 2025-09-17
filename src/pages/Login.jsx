@@ -13,8 +13,7 @@ export default function Login() {
 
   useEffect(() => {
     if (isAuthenticated) nevigate("/app");
-    console.log("isAuth is ", isAuthenticated);
-  }, [isAuthenticated]);
+  }, [isAuthenticated, nevigate]);
 
   function handleSubmit(e) {
     e.preventDefault();

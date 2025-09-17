@@ -45,10 +45,8 @@ function Form() {
           setCityName(data.city);
           setCountry(data.countryName);
           setCountryCode(data.countryCode);
-          console.log(data);
         } catch (err) {
           setGettingPositionError(err.message);
-          console.log(err);
         } finally {
           setPositionLoading(false);
         }
