@@ -1,4 +1,10 @@
-import { createContext, useEffect, useContext, useReducer } from "react";
+import {
+  createContext,
+  useEffect,
+  useContext,
+  useReducer,
+  useCallback,
+} from "react";
 
 // const BASE_URL = "http://localhost:2000";
 const BASE_URL = "https://world-wise-b7zc.onrender.com";
@@ -89,7 +95,7 @@ function CitiesProvider({ children }) {
     getCities();
   }, []);
 
-  async function getCity(id) {
+  const getCity = useCallback(async function getCity(id) {
     dispatch({ type: "isLoading" });
     try {
       const res = await fetch(`${BASE_URL}/cities/${id}`);
@@ -102,7 +108,7 @@ function CitiesProvider({ children }) {
         payload: "There was an Error in Loading City.",
       });
     }
-  }
+  }, []);
 
   async function addCity(newCity) {
     dispatch({ type: "isLoading" });
