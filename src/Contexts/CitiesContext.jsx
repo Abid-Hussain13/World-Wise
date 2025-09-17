@@ -75,7 +75,7 @@ function reducer(state, action) {
 
 const CitiesContext = createContext();
 function CitiesProvider({ children }) {
-  const [{ cities, isLoading, currentCity, mapPositionSet }, dispatch] =
+  const [{ cities, isLoading, currentCity, mapPositionSet, error }, dispatch] =
     useReducer(reducer, initialState);
 
   useEffect(() => {
@@ -158,6 +158,7 @@ function CitiesProvider({ children }) {
         isLoading,
         currentCity,
         mapPositionSet,
+        error,
         getCity,
         addCity,
         deleteCity,

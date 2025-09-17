@@ -5,10 +5,12 @@ import Message from "./Message";
 import { useCities } from "../Contexts/CitiesContext";
 
 export default function CityList() {
-  const { cities, isLoading } = useCities();
+  const { cities, isLoading, error } = useCities();
   if (isLoading) return <Spinner />;
 
-  if (!cities.length)
+  if (error) return <Message message={error} />;
+
+  if (!cities.length && !error)
     return (
       <Message
         message={"Add your first City by clicking on the city on the map."}
